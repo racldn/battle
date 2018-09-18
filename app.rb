@@ -6,6 +6,10 @@ class Battle < Sinatra::Base
        erb(:form)
     end
 
+    post '/names' do
+      erb :play
+    end
+
     get '/' do
         "Testing infrastructure working!"
     end
