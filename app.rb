@@ -1,9 +1,14 @@
 require 'sinatra/base'
 
-class Battle
+
+class Battle < Sinatra::Base
     get '/battle' do
-       'hello'
+       erb(:form)
     end
 
+    get '/' do
+        "hello battle!"
+    end 
 
+    run! if app_file == $0
 end
