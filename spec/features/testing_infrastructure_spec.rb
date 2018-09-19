@@ -1,4 +1,4 @@
-feature 'Enter names' do
+feature 'play page' do
   scenario 'submitting names' do
     sign_in_and_play
     expect(page).to have_content 'Robbie vs. Victor'
@@ -15,5 +15,11 @@ feature 'Attacking' do
     sign_in_and_play
     click_link 'Attack'
     expect(page).to have_content "Robbie attacked Victor"
+  end
+
+  scenario 'Reduces hit points by 10' do
+    sign_in_and_play
+    click_link 'Attack'
+    expect(page).to have_content "Victor 50HP"
   end
 end
