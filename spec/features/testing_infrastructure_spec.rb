@@ -20,6 +20,7 @@ feature 'Attacking' do
   scenario 'Reduces hit points by 10' do
     sign_in_and_play
     click_link 'Attack'
+    expect(page).not_to have_content "Victor: 60HP"
     expect(page).to have_content "Victor 50HP"
   end
 end
