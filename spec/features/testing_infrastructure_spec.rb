@@ -1,16 +1,19 @@
-feature 'Testing infrastructure' do
-  scenario 'Can run app and check page content' do
-    visit('/')
-    expect(page).to have_content 'Testing infrastructure working!'
+feature 'Enter names' do
+  scenario 'submitting names' do
+    sign_in_and_play
+    expect(page).to have_content 'Robbie vs. Victor'
   end
 
+  scenario 'seeing player hit points' do
+    sign_in_and_play
+    expect(page).to have_content 'Victor: 60HP'
+  end
+end
 
-  scenario 'Testing player1 and player2 forms in capybara' do
-    visit('/battle')
-
-    fill_in 'player1',:with => 'Robbie'
-    fill_in 'player2', :with =>'Victor'
-    click_on 'Submit'
-    expect(page).to have_content 'Robbie Vs Victor'
+feature 'Attacking' do
+  scenario 'Attacking player 2 and get a confirmation' do
+    sign_in_and_play
+    click_link 'Attack'
+    expect(page).to have_content "Robbie attacked Victor"
   end
 end
