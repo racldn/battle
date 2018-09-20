@@ -17,10 +17,4 @@ describe Player do
     expect(robbie.score).to eq(Player::DEFAULT_SCORE - 10)
   end
 
-  it 'when attacking reduces opposition HP by 10' do
-    expect(alex).to receive(:attacked)
-    robbie.attack(alex)
-  end
-
-
 end
